@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Registration Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-900 text-white flex items-center justify-center h-screen">
+    <div class="bg-gray-800 p-6 rounded-lg shadow-lg w-100">
+        <h2 class="text-center text-xl mb-6">Seller Register</h2>
+        <form id="registrationForm">
+            <div class="mb-4">
+                <input type="text" placeholder="Username" id="username" name="username" required class="w-full p-2 border border-gray-600 rounded bg-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-600">
+            </div>
+            <div class="flex mb-4">
+                <select required class="w-1/3 border border-gray-600 rounded bg-gray-700 text-white py-2 pr-2 focus:outline-none focus:ring-2 focus:ring-purple-600">
+                    <option value="" disabled selected>Code</option>
+                    <option value="+1">+1 (USA)</option>
+                    <option value="+44">+44 (UK)</option>
+                    <option value="+91">+91 (India)</option>
+                    <!-- Add more country codes as needed -->
+                </select>
+                <input type="text" placeholder="Mobile Number" required class="w-2/3 ml-2 p-2 border border-gray-600 rounded bg-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-600">
+            </div>
+            <div class="mb-4">
+                <input type="email" placeholder="Email" id="email" name="email" required class="w-full p-2 border border-gray-600 rounded bg-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-600">
+            </div>
+            <div class="mb-4">
+                <input type="password" placeholder="Password" id="password" name="password" required class="w-full p-2 border border-gray-600 rounded bg-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-600">
+            </div>
+            <div class="text-center">
+                <button class="w-full bg-purple-600 hover:bg-purple-500 text-white py-2 rounded transition" type="submit">Register</button>
+            </div>
+            <div class="mt-4 text-right">
+                <a href="#" class="text-purple-300 hover:text-purple-100 transition duration-200">
+                    Forgot Password?
+                </a>
+            </div>
+        </form>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('registrationForm');
+            const passwordInput = document.getElementById('password');
+            const confirmPasswordInput = document.getElementById('confirmPassword');
+            const togglePassword = document.getElementById('togglePassword');
+
+            // ---Shows Password--- 
+            togglePassword.addEventListener('click', function() {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                this.querySelector('svg').classList.toggle('text-blue-400');
+            });
+
+            /* FORM ACTION */
+            /*form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const password = document.getElementById('password').value;
+                const confirmPassword = document.getElementById('confirmPassword').value;
+
+                if (password !== confirmPassword) {
+                    alert('Passwords do not match!');
+                    return;
+                }
+
+                // Here you would typically send the form data to your backend
+                console.log('Form submitted:', {
+                    username: document.getElementById('username').value,
+                    email: document.getElementById('email').value,
+                    password: password
+                });
+
+                // Reset form after successful submission
+                form.reset();
+            });*/
+        });
+    </script>
+</body>
+
+</html>
