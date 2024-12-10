@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product - E-commerce Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-gray-100">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold mb-6 text-center text-white">Add New Product</h1>
+        <form class="max-w-2xl mx-auto bg-gray-800 shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <div class="mb-4">
+                <label class="block text-gray-300 text-sm font-bold mb-2" for="product-name">
+                    Product Name
+                </label>
+                <input class="w-full px-4 py-2 rounded-md bg-gray-700 border border-gray-600 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none text-gray-100 placeholder-gray-400 transition duration-300" id="product-name" type="text" placeholder="Enter product name" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-300 text-sm font-bold mb-2" for="product-description">
+                    Product Description
+                </label>
+                <textarea class="w-full px-4 py-2 rounded-md bg-gray-700 border border-gray-600 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none text-gray-100 placeholder-gray-400 transition duration-300" id="product-description" placeholder="Enter product description" rows="4" required></textarea>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-300 text-sm font-bold mb-2" for="product-price">
+                    Price ($)
+                </label>
+                <input class="w-full px-4 py-2 rounded-md bg-gray-700 border border-gray-600 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none text-gray-100 placeholder-gray-400 transition duration-300" id="product-price" type="number" step="0.01" min="0" placeholder="0.00" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-300 text-sm font-bold mb-2" for="product-category">
+                    Category
+                </label>
+                <select class="w-full px-4 py-2 rounded-md bg-gray-700 border border-gray-600 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none text-gray-100 placeholder-gray-400 transition duration-300" id="product-category" required>
+                    <option value="">Select a category</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="clothing">Clothing</option>
+                    <option value="books">Books</option>
+                    <option value="home">Home & Garden</option>
+                    <option value="toys">Toys & Games</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                
+                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="large_size">Product Image</label>
+                <input type="file" name="file-input" id="file-input" class="block w-full border border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-700 dark:border-neutral-700 dark:text-gray-400
+                  file:bg-gray-50 file:border-0
+                  file:me-4
+                  file:py-3 file:px-4
+                  dark:file:bg-gray-900 dark:file:text-gray-400">                <!-- <input class="w-full px-4 py-2 rounded-md bg-gray-700 border border-gray-600 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none text-gray-100 placeholder-gray-400 transition duration-300" id="product-image" type="file" accept="image/*" required> -->
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-300 text-sm font-bold mb-2" for="product-inventory">
+                    Inventory
+                </label>
+                <input class="w-full px-4 py-2 rounded-md bg-gray-700 border border-gray-600 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none text-gray-100 placeholder-gray-400 transition duration-300" id="product-inventory" type="number" min="0" placeholder="Enter inventory quantity" required>
+            </div>
+            <div class="flex items-center justify-between">
+                <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                    Add Product
+                </button>
+                <a class="inline-block align-baseline font-bold text-sm text-blue-400 hover:text-blue-600" href="#">
+                    Cancel
+                </a>
+            </div>
+        </form>
+        <div class="text-center mt-4">
+            <a href="#" class="text-blue-400 hover:text-blue-500">← Back to Product List</a>
+        </div>
+    </div>
+</body>
+</html>

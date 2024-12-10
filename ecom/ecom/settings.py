@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "login",
     "registration",
     "sellerRegistration",
+    "addproduct",
 ]
 
 MIDDLEWARE = [
