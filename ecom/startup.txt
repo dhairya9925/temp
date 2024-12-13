@@ -1,5 +1,7 @@
-step 1 : source .venv/bin/activate
+source .venv/bin/activate
+cd ecom
+python manage.py runserver
 
-step 2 : cd ecom
 
-step 3 : python manage.py runserver
+SUPER_USER = "admin"
+PASSWORD = "dha"

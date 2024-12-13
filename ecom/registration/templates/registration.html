@@ -43,8 +43,8 @@
         <p class="text-center text-gray-300 mb-8">Create your account and start shopping!</p>
         <form id="registrationForm" class="space-y-6">
             <div class="space-y-2">
-                <label for="username" class="block text-sm font-medium text-gray-300">Username</label>
-                <input type="text" id="username" name="username" required
+                <label for="name" class="block text-sm font-medium text-gray-300">name</label>
+                <input type="text" id="name" name="name" required
                     class="w-full px-4 py-2 rounded-md bg-gray-700 border border-gray-600 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none text-gray-100 placeholder-gray-400 transition duration-300">
             </div>
             <div class="space-y-2">
@@ -125,7 +125,7 @@
 
                 // Here you would typically send the form data to your backend
                 console.log('Form submitted:', {
-                    username: document.getElementById('username').value,
+                    name: document.getElementById('name').value,
                     email: document.getElementById('email').value,
                     password: password
                 });
@@ -144,15 +144,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register - EcomStore</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // JavaScript function to check if passwords match
+        function checkPasswordMatch(event) {
+            // Get the password and confirm password fields
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+
+            // Check if passwords match
+            if (password !== confirmPassword) {
+                alert("Passwords do not match! Please try again.");
+                event.preventDefault(); // Prevent form submission
+                return false; // Stop further execution
+            }
+            return true; // Allow form submission if passwords match
+        }
+    </script>
 </head>
 <body class="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700">
     <div class="bg-gray-800 bg-opacity-50 backdrop-filter backdrop-blur-lg p-8 rounded-xl shadow-2xl w-full max-w-md">
         <h2 class="text-3xl font-bold mb-6 text-center text-gray-100">Register to EcomStore</h2>
         <p class="text-center text-gray-300 mb-8">Welcome! Please enter your details.</p>
-        <form id="registrationForm" class="space-y-3">
+        <form class="space-y-3" action="" method="post" onsubmit="return checkPasswordMatch(event)">
+            {% csrf_token %}
             <div class="space-y-2">
-                <label for="username" class="block text-sm font-medium text-gray-300">Username</label>
-                <input type="text" id="username" name="username" required class="w-full p-2 border border-gray-600 rounded bg-gray-700 text-white focus:outline-none focus:border-blue-500">
+                <label for="name" class="block text-sm font-medium text-gray-300">Username</label>
+                <input type="text" id="name" name="name" required class="w-full p-2 border border-gray-600 rounded bg-gray-700 text-white focus:outline-none focus:border-blue-500">
             </div>
             <div class="space-y-2">
                 <label for="email" class="block text-sm font-medium text-gray-300">Email</label>
@@ -163,6 +180,13 @@
                 <input type="password" id="password" name="password" required class="w-full p-2 border border-gray-600 rounded bg-gray-700 text-white focus:outline-none focus:border-blue-500">
             </div>
             <div class="space-y-2">
+                {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
                 <label for="confirmPassword" class="block text-sm font-medium text-gray-300">Confirm Password</label>
                 <input type="password" id="confirmPassword" name="confirmPassword" required class="w-full p-2 border border-gray-600 rounded bg-gray-700 text-white focus:outline-none focus:border-blue-500">
             </div>
@@ -182,6 +206,8 @@
         </p>
     </div>
     <script>
+        // Function to check if password and confirm password match
+
         document.addEventListener('DOMContentLoaded', function() {
             const form = document.getElementById('registrationForm');
             const passwordInput = document.getElementById('password');
@@ -200,14 +226,14 @@
 
                 // Here you would typically send the form data to your backend
                 console.log('Form submitted:', {
-                    username: document.getElementById('username').value,
+                    name: document.getElementById('name').value,
                     email: document.getElementById('email').value,
                     password: password
                 });
 
                 // Reset form after successful submission
                 form.reset();
-            });*/
+            });
         });
     </script>
 </body>
