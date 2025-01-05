@@ -19,7 +19,7 @@ def registration(request):
         if password != confirmPassword:
             messages.error(request, "Passwords do not match!")
             # print(f"password: {password}/n")
-            # print(f"confirmPassword: {confirmPassword}/n")
+            
             return render(request, "registration.html")
         # def read():
         #     # Open and read the JSON file

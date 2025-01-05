@@ -20,4 +20,5 @@ from . import views
 
 urlpatterns = [
     path("", views.sellerRegistration, name="sellerRegistration"),
+    path("company", views.company, name="company"),
 ]

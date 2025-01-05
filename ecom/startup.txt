@@ -5,3 +5,8 @@ python manage.py runserver
 
 SUPER_USER = "admin"
 PASSWORD = "dha"
+
+GST API KEY = "8319d4c265cf5153ed247f0a05a0fd46"
+API = "http://sheet.gstincheck.co.in/check/{api key}/{GSTIN Number}"
+
+# "https://mail.google.com/mail/u/0/#search/api/FMfcgzQXKhRdRhlmQnJsHQXXXMSSqGCW"
