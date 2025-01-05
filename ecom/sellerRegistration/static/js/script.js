@@ -1,4 +1,3 @@
-// Function to make API call and update fields in real-time
 function updateLocationData(pincode) {
     const messageElement = document.getElementById('message');
     const cityField = document.getElementById('city');
@@ -85,8 +84,9 @@ function validateGSTIN() {
 
     // Replace {api_key} with your actual API key
     const apiKey = '8319d4c265cf5153ed247f0a05a0fd46'; // Replace with your API key
-    const apiUrl = `http://sheet.gstincheck.co.in/check/${apiKey}/${gstinInput}`;
-
+    const apiUrl = `https://sheet.gstincheck.co.in/check/${apiKey}/${gstinInput}`;
+    // x = apiUrl.response.json();
+    // console.log(x)
     // Make the API request
     fetch(apiUrl)
         .then(response => response.json()) // Parse the JSON response
@@ -103,7 +103,7 @@ function validateGSTIN() {
                 // Compare the company name fetched from the API with the user-entered business name
                 if (companyName.toLowerCase() === companyNameInput.toLowerCase()) {
                     // Display success message with the company name, trade name, and state
-                    messageElement.textContent = `GSTIN is valid! Company: ${companyName}, Trade Name: ${tradeName}, State: Gujarat`;
+                    // messageElement.textContent = `GSTIN is valid! Company: ${companyName}, Trade Name: ${tradeName}, State: Gujarat`;
                     messageElement.className = 'success';
                 } else {
                     // If the business name doesn't match the API's company name
@@ -126,7 +126,7 @@ function validateGSTIN() {
 
 // Event listener for real-time GSTIN validation
 document.getElementById('gstin').addEventListener('input', validateGSTIN);
-// document.getElementById('companyName').addEventListener('input', validateGSTIN);
+document.getElementById('companyName').addEventListener('input', validateGSTIN);
 document.getElementById('pincode').addEventListener('input', function() {
     const pincode = this.value.trim();
     updateLocationData(pincode);
